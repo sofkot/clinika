@@ -169,13 +169,38 @@
 inner join schedule on doctors.schedule_id = schedule.id
 order by name desc;
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-| name | speciality | working_days
-| --- | --- | --- 
-| petr | cardiologist | {mon,tue}
-| natasha | ent | {mon,wed}
-| makar | pathologist | {mon,tue}
-| larisa | psychologist | {wed, fri}</p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>speciality</th>
+<th>working_days</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>petr</td>
+<td>cardiologist</td>
+<td>{mon,tue}</td>
+</tr>
+<tr>
+<td>natasha</td>
+<td>ent</td>
+<td>{mon,wed}</td>
+</tr>
+<tr>
+<td>makar</td>
+<td>pathologist</td>
+<td>{mon,tue}</td>
+</tr>
+<tr>
+<td>larisa</td>
+<td>psychologist</td>
+<td>{wed, fri}</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p>
 <h1 id="2nd-request">2ND REQUEST</h1>
 <p><strong>Описание запроса:</strong></p>
@@ -186,17 +211,121 @@ order by name desc;
 inner join patients on appointments.patient_id = patients.id
 order by time;
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-| id | date | time | doctor_id | office_id | patient_id | id | name | phone_number | date_of_birth
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
-| 1 | 2020-01-01 | 12:00:00 | 1 | 1 | 1 | 1 | sereja | +79119991271 | 2002-05-05
-| 6 | 2020-01-10 | 12:30:00 | 2 | 1 | 1 | 1 | sereja | +79119991271 | 2002-05-05
-| 2 | 2020-01-02 | 13:00:00 | 4 | 1 | 2 | 2 | dima | +79119391271 | 2002-05-01
-| 4 | 2020-01-04 | 15:00:00 | 3 | 2 | 3 | 3 | oleg | +79113791271 | 2002-05-12
-| 3 | 2020-01-03 | 17:00:00 | 3 | 2 | 3 | 3 | oleg | +79113791271 | 2002-05-12
-| 7 | 2020-01-10 | 17:30:00 | 2 | 3 | 3 | 3 | oleg | +79113791271 | 2002-05-12
-| 8 | 2020-01-15 | 18:30:00 | 3 | 3 | 1 | 1 | sereja | +79119991271 | 2002-05-05
-| 5 | 2020-01-04| 19:00:00 | 3 | 2 | 1 | 1 | sereja | +79119991271 | 2002-05-05</p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>date</th>
+<th>time</th>
+<th>doctor_id</th>
+<th>office_id</th>
+<th>patient_id</th>
+<th>id</th>
+<th>name</th>
+<th>phone_number</th>
+<th>date_of_birth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2020-01-01</td>
+<td>12:00:00</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>sereja</td>
+<td>+79119991271</td>
+<td>2002-05-05</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2020-01-10</td>
+<td>12:30:00</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>sereja</td>
+<td>+79119991271</td>
+<td>2002-05-05</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2020-01-02</td>
+<td>13:00:00</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>dima</td>
+<td>+79119391271</td>
+<td>2002-05-01</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2020-01-04</td>
+<td>15:00:00</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>oleg</td>
+<td>+79113791271</td>
+<td>2002-05-12</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2020-01-03</td>
+<td>17:00:00</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>oleg</td>
+<td>+79113791271</td>
+<td>2002-05-12</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2020-01-10</td>
+<td>17:30:00</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>oleg</td>
+<td>+79113791271</td>
+<td>2002-05-12</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2020-01-15</td>
+<td>18:30:00</td>
+<td>3</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>sereja</td>
+<td>+79119991271</td>
+<td>2002-05-05</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2020-01-04</td>
+<td>19:00:00</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>sereja</td>
+<td>+79119991271</td>
+<td>2002-05-05</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p>
 <h1 id="3rd-request">3RD REQUEST</h1>
 <p><strong>Описание запроса:</strong></p>
@@ -207,10 +336,27 @@ order by time;
 select id from appointments where date = '2020-01-02'
 );
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-| id | diagnosis | condition | recommendation | appointment_id
-| --- | --- | --- | --- | --- 
-| 2 | vse ochen ploho | umer | ne prihodite bolshe | 2 </p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>diagnosis</th>
+<th>condition</th>
+<th>recommendation</th>
+<th>appointment_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>vse ochen ploho</td>
+<td>umer</td>
+<td>ne prihodite bolshe</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p>
 <h1 id="4th-request">4TH REQUEST</h1>
 <p><strong>Описание запроса:</strong></p>
@@ -219,11 +365,37 @@ select id from appointments where date = '2020-01-02'
 <p><strong>Код запроса:</strong></p>
 <pre><code>select * from appointments where office_id = 1 and not time = '12:00:00';
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-| id | date | time | doctor_id | office_id | patient_id
-| --- | --- | --- | --- | --- | ---
-| 2 | 2020-01-02 | 13:00:00 | 4 | 1 | 2 
-| 6 | 2020-01-10 | 12:30:00 | 2 | 1 | 1 </p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>date</th>
+<th>time</th>
+<th>doctor_id</th>
+<th>office_id</th>
+<th>patient_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>2020-01-02</td>
+<td>13:00:00</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2020-01-10</td>
+<td>12:30:00</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p>
 <h1 id="5th-request">5TH REQUEST</h1>
 <p><strong>Описание запроса:</strong></p>
@@ -232,12 +404,41 @@ select id from appointments where date = '2020-01-02'
 <p><strong>Код запроса:</strong></p>
 <pre><code>select *, age(date_of_birth) as age from patients;
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-| id | name | phone_number | date_of_birth | age
-| --- | --- | --- | --- | --- 
-| 1 | sereja | +79119991271 | 2002-05-05 | 19 years 6 days
-| 2 | dima | +79119391271 | 2002-05-01 | 19 years 10 days
-| 3 | oleg | +79113791271 | 2002-05-12 | 18 years 11 mons 30 days</p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>phone_number</th>
+<th>date_of_birth</th>
+<th>age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>sereja</td>
+<td>+79119991271</td>
+<td>2002-05-05</td>
+<td>19 years 6 days</td>
+</tr>
+<tr>
+<td>2</td>
+<td>dima</td>
+<td>+79119391271</td>
+<td>2002-05-01</td>
+<td>19 years 10 days</td>
+</tr>
+<tr>
+<td>3</td>
+<td>oleg</td>
+<td>+79113791271</td>
+<td>2002-05-12</td>
+<td>18 years 11 mons 30 days</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p>
 <h1 id="6th-request">6TH REQUEST</h1>
 <p><strong>Описание запроса:</strong></p>
@@ -246,14 +447,61 @@ select id from appointments where date = '2020-01-02'
 <p><strong>Код запроса:</strong></p>
 <pre><code>select * appointments where date between '2020-01-01' and '2020-01-07';
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-| id | date | time | doctor_id | office_id | patient_id
-| --- | --- | --- | --- | --- | ---
-| 1 | 2020-01-01 | 12:00:00 | 1 | 1 | 1 
-| 2 | 2020-01-02 | 13:00:00 | 4 | 1 | 2 
-| 3 | 2020-01-03 | 17:00:00 | 3 | 2 | 3 
-| 4 | 2020-01-04 | 15:00:00 | 3 | 2 | 3 
-| 5 | 2020-01-04 | 19:00:00 | 3 | 2 | 1 </p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>date</th>
+<th>time</th>
+<th>doctor_id</th>
+<th>office_id</th>
+<th>patient_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2020-01-01</td>
+<td>12:00:00</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2020-01-02</td>
+<td>13:00:00</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2020-01-03</td>
+<td>17:00:00</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2020-01-04</td>
+<td>15:00:00</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2020-01-04</td>
+<td>19:00:00</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p>
 <h1 id="7th-request">7TH REQUEST</h1>
 <p><strong>Описание запроса:</strong></p>
@@ -262,13 +510,58 @@ select id from appointments where date = '2020-01-02'
 <p><strong>Код запроса:</strong></p>
 <pre><code>select *, concat_ws(' - ', name, speciality) as info from doctors;
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-| id | name | speciality | date_of_birth | price_list_id | schedule_id | info
-| --- | --- | --- | --- | --- | --- | ---
-| 1 | petr | cardiologist | 1999-04-23 | 1 | 1 | petr - cardiologist
-| 2 | natasha | ent | 1999-04-23 | 4 | 2 | natasha - ent
-| 3 | larisa | psychologist | 1999-02-23 | 2 | 3 | larisa - psychologist
-| 4 | makar | pathologist | 1999-05-28 | 3 | 1 | makar - pathologist </p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>speciality</th>
+<th>date_of_birth</th>
+<th>price_list_id</th>
+<th>schedule_id</th>
+<th>info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>petr</td>
+<td>cardiologist</td>
+<td>1999-04-23</td>
+<td>1</td>
+<td>1</td>
+<td>petr - cardiologist</td>
+</tr>
+<tr>
+<td>2</td>
+<td>natasha</td>
+<td>ent</td>
+<td>1999-04-23</td>
+<td>4</td>
+<td>2</td>
+<td>natasha - ent</td>
+</tr>
+<tr>
+<td>3</td>
+<td>larisa</td>
+<td>psychologist</td>
+<td>1999-02-23</td>
+<td>2</td>
+<td>3</td>
+<td>larisa - psychologist</td>
+</tr>
+<tr>
+<td>4</td>
+<td>makar</td>
+<td>pathologist</td>
+<td>1999-05-28</td>
+<td>3</td>
+<td>1</td>
+<td>makar - pathologist</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p>
 <h1 id="8th-request">8TH REQUEST</h1>
 <p><strong>Описание запроса:</strong></p>
@@ -277,13 +570,28 @@ select id from appointments where date = '2020-01-02'
 <p><strong>Код запроса:</strong></p>
 <pre><code>select length(name) from doctors;
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-| length  |
-| --- |
-| 5 |
-| 6 |
-| 7 |
-| 4 |</p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+</tr>
+<tr>
+<td>6</td>
+</tr>
+<tr>
+<td>7</td>
+</tr>
+<tr>
+<td>4</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p>
 <h1 id="9th-request">9TH REQUEST</h1>
 <p><strong>Описание запроса:</strong></p>
@@ -292,13 +600,28 @@ select id from appointments where date = '2020-01-02'
 <p><strong>Код запроса:</strong></p>
 <pre><code>select upper(name) from doctors;
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-| upper  |
-| --- |
-| MAKAR |
-| LARISA |
-| NATASHA |
-| PETR |</p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>upper</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MAKAR</td>
+</tr>
+<tr>
+<td>LARISA</td>
+</tr>
+<tr>
+<td>NATASHA</td>
+</tr>
+<tr>
+<td>PETR</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p>
 <h1 id="10th-request">10TH REQUEST</h1>
 <p><strong>Описание запроса:</strong></p>
@@ -310,10 +633,51 @@ inner join appointments on (medical_records.appointment_id = appointments.id)
 inner join doctors on (appointments.doctor_id = doctors.id)
 where medical_records.condition = 'umer' and doctors.speciality = 'pathologist';
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-| id | diagnosis | condition | recommendation | appointment_id | id | date | time | doctor_id | office_id | patient_id | id | name | speciality | date_of_birth | price_list_id | schedule_id
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- 
-| 2 | vse ochen ploho | umer | ne prihodite bolshe | 2 | 2 | 2020-01-02 | 13:00:00 | 4 | 1 | 2 | 4 | makar | pathologist | 1999-05-28 | 3 | 1</p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>diagnosis</th>
+<th>condition</th>
+<th>recommendation</th>
+<th>appointment_id</th>
+<th>id</th>
+<th>date</th>
+<th>time</th>
+<th>doctor_id</th>
+<th>office_id</th>
+<th>patient_id</th>
+<th>id</th>
+<th>name</th>
+<th>speciality</th>
+<th>date_of_birth</th>
+<th>price_list_id</th>
+<th>schedule_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>vse ochen ploho</td>
+<td>umer</td>
+<td>ne prihodite bolshe</td>
+<td>2</td>
+<td>2</td>
+<td>2020-01-02</td>
+<td>13:00:00</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+<td>makar</td>
+<td>pathologist</td>
+<td>1999-05-28</td>
+<td>3</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p>
 <h1 id="11th-request">11TH REQUEST</h1>
 <p><strong>Описание запроса:</strong></p>
@@ -324,17 +688,58 @@ where medical_records.condition = 'umer' and doctors.speciality = 'pathologist';
 inner join doctors on (appointments.doctor_id = doctors.id)
 inner join patients on (appointments.patient_id = patients.id);
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-| name | name | date 
-| --- | --- | --- 
-| petr | sereja | 2020-01-01
-| larisa | oleg | 2020-01-03
-| makar | dima | 2020-01-02
-| larisa | oleg | 2020-01-04
-| larisa | sereja | 2020-01-04
-| natasha | sereja | 2020-01-10
-| natasha | oleg | 2020-01-10
-| larisa | sereja | 2020-01-15</p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>name</th>
+<th>date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>petr</td>
+<td>sereja</td>
+<td>2020-01-01</td>
+</tr>
+<tr>
+<td>larisa</td>
+<td>oleg</td>
+<td>2020-01-03</td>
+</tr>
+<tr>
+<td>makar</td>
+<td>dima</td>
+<td>2020-01-02</td>
+</tr>
+<tr>
+<td>larisa</td>
+<td>oleg</td>
+<td>2020-01-04</td>
+</tr>
+<tr>
+<td>larisa</td>
+<td>sereja</td>
+<td>2020-01-04</td>
+</tr>
+<tr>
+<td>natasha</td>
+<td>sereja</td>
+<td>2020-01-10</td>
+</tr>
+<tr>
+<td>natasha</td>
+<td>oleg</td>
+<td>2020-01-10</td>
+</tr>
+<tr>
+<td>larisa</td>
+<td>sereja</td>
+<td>2020-01-15</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p>
 <h1 id="12th-request">12TH REQUEST</h1>
 <p><strong>Описание запроса:</strong></p>
@@ -346,13 +751,38 @@ inner join doctors on (appointments.doctor_id = doctors.id)
 inner join patients on (appointments.patient_id = patients.id)
 group by doctors.id;
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-| id | name | count
-| --- | --- | --- 
-| 1 | petr | 1
-| 2 | natasha | 2
-| 3 | larisa | 2
-| 4 | makar | 1</p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>petr</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>natasha</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>larisa</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>makar</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p>
 <h1 id="13th-request">13TH REQUEST</h1>
 <p><strong>Описание запроса:</strong></p>
@@ -364,13 +794,33 @@ inner join doctors on (appointments.doctor_id = doctors.id)
 inner join price_lists on (doctors.proce_list_id = price_lists.id)
 group by appointments.doctor_id, price_lists.price;
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-| doctor_id | sum 
-| --- | --- 
-| 1 | $1,900.00
-| 2 | $4,200.00
-| 3 | $9,600.00
-| 4 | $5,500.00</p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>doctor_id</th>
+<th>sum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>$1,900.00</td>
+</tr>
+<tr>
+<td>2</td>
+<td>$4,200.00</td>
+</tr>
+<tr>
+<td>3</td>
+<td>$9,600.00</td>
+</tr>
+<tr>
+<td>4</td>
+<td>$5,500.00</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p>
 <h1 id="14th-request">14TH REQUEST</h1>
 <p><strong>Описание запроса:</strong></p>
@@ -381,11 +831,25 @@ group by appointments.doctor_id, price_lists.price;
 group by office_id
 having count(office_id) &gt; 2;
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-| office_id | count
-| --- | --- 
-| 2 | 3
-| 1 | 3</p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>office_id</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p>
 <h1 id="15th-request">15TH REQUEST</h1>
 <p><strong>Описание запроса:</strong></p>
@@ -396,11 +860,25 @@ having count(office_id) &gt; 2;
 group by date
 having count(date) in (2,3);
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-| date | count
-| --- | --- 
-| 2020-01-04 | 2
-| 2020-01-10 | 2</p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>date</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2020-01-04</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2020-01-10</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p></div>
             </div>
         </div>
