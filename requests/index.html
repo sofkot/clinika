@@ -169,13 +169,38 @@
 inner join schedule on doctors.schedule_id = schedule.id
 order by name desc;
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-name | speciality | working_days
---- | --- | --- | --- | --- 
-petr | cardiologist | {mon,tue}
-natasha | ent | {mon,wed}
-makar | pathologist | {mon,tue}
-larisa | psychologist | {wed, fri}</p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>speciality</th>
+<th>working_days</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>petr</td>
+<td>cardiologist</td>
+<td>{mon,tue}</td>
+</tr>
+<tr>
+<td>natasha</td>
+<td>ent</td>
+<td>{mon,wed}</td>
+</tr>
+<tr>
+<td>makar</td>
+<td>pathologist</td>
+<td>{mon,tue}</td>
+</tr>
+<tr>
+<td>larisa</td>
+<td>psychologist</td>
+<td>{wed, fri}</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p>
 <h1 id="2nd-request">2ND REQUEST</h1>
 <p><strong>Код запроса:</strong></p>
@@ -183,17 +208,121 @@ larisa | psychologist | {wed, fri}</p>
 inner join patients on appointments.patient_id = patients.id
 order by time;
 </code></pre>
-<p><strong>Результаты запроса:</strong>
-id | date | time | doctor_id | office_id | patient_id | id | name | phone_number | date_of_birth
---- | --- | --- | --- | --- | --- | --- | --- | --- | ---
-1 | 2020-01-01 | 12:00:00 | 1 | 1 | 1 | 1 | sereja | +79119991271 | 2002-05-05
-6 | 2020-01-10 | 12:30:00 | 2 | 1 | 1 | 1 | sereja | +79119991271 | 2002-05-05
-2 | 2020-01-02 | 13:00:00 | 4 | 1 | 2 | 2 | dima | +79119391271 | 2002-05-01
-4 | 2020-01-04 | 15:00:00 | 3 | 2 | 3 | 3 | oleg | +79113791271 | 2002-05-12
-3 | 2020-01-03 | 17:00:00 | 3 | 2 | 3 | 3 | oleg | +79113791271 | 2002-05-12
-7 | 2020-01-10 | 17:30:00 | 2 | 3 | 3 | 3 | oleg | +79113791271 | 2002-05-12
-8 | 2020-01-15 | 18:30:00 | 3 | 3 | 1 | 1 | sereja | +79119991271 | 2002-05-05
-5 | 2020-01-04| 19:00:00 | 3 | 2 | 1 | 1 | sereja | +79119991271 | 2002-05-05</p>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>date</th>
+<th>time</th>
+<th>doctor_id</th>
+<th>office_id</th>
+<th>patient_id</th>
+<th>id</th>
+<th>name</th>
+<th>phone_number</th>
+<th>date_of_birth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2020-01-01</td>
+<td>12:00:00</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>sereja</td>
+<td>+79119991271</td>
+<td>2002-05-05</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2020-01-10</td>
+<td>12:30:00</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>sereja</td>
+<td>+79119991271</td>
+<td>2002-05-05</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2020-01-02</td>
+<td>13:00:00</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>dima</td>
+<td>+79119391271</td>
+<td>2002-05-01</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2020-01-04</td>
+<td>15:00:00</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>oleg</td>
+<td>+79113791271</td>
+<td>2002-05-12</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2020-01-03</td>
+<td>17:00:00</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>oleg</td>
+<td>+79113791271</td>
+<td>2002-05-12</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2020-01-10</td>
+<td>17:30:00</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>oleg</td>
+<td>+79113791271</td>
+<td>2002-05-12</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2020-01-15</td>
+<td>18:30:00</td>
+<td>3</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>sereja</td>
+<td>+79119991271</td>
+<td>2002-05-05</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2020-01-04</td>
+<td>19:00:00</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>sereja</td>
+<td>+79119991271</td>
+<td>2002-05-05</td>
+</tr>
+</tbody>
+</table>
 <p><br/></p>
 <h1 id="3rd-request">3RD REQUEST</h1>
 <p><strong>Код запроса:</strong></p>
