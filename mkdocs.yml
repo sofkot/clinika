@@ -3,5 +3,6 @@ nav:
  - Главная: index.md
  - СУБД: DB.md
  - БД: tables.md
+ - Интерфейсы: php.md
 
 theme: lux
