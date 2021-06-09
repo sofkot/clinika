@@ -7,23 +7,23 @@
         
         
         
-        <link rel="shortcut icon" href="../img/favicon.ico">
+        <link rel="shortcut icon" href="img/favicon.ico">
         <title>БД - КЛИНИКА</title>
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/color-brewer.min.css">
 
-        <script src="../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="..">КЛИНИКА</a>
+                <a class="navbar-brand" href="index.html">КЛИНИКА</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -34,16 +34,16 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="navitem">
-                                <a href=".." class="nav-link">Главная</a>
+                                <a href="index.html" class="nav-link">Главная</a>
                             </li>
                             <li class="navitem">
-                                <a href="../DB/" class="nav-link">СУБД</a>
+                                <a href="DB.html" class="nav-link">СУБД</a>
                             </li>
                             <li class="navitem active">
-                                <a href="./" class="nav-link">БД</a>
+                                <a href="tables.html" class="nav-link">БД</a>
                             </li>
                             <li class="navitem">
-                                <a href="../requests/" class="nav-link">ЗАПРОСЫ</a>
+                                <a href="php.html" class="nav-link">Интерфейсы</a>
                             </li>
                         </ul>
 
@@ -54,12 +54,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../DB/" class="nav-link">
+                                <a rel="prev" href="DB.html" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../requests/" class="nav-link">
+                                <a rel="next" href="php.html" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -275,10 +275,9 @@ insert into offices (begin_working, end_working, phone_number) values('15:00:00'
 );
 </code></pre>
 <p><strong>Код заполнения:</strong></p>
-<pre><code class="language-sql">insert into price_lists (service, price) values('treatment', $1900.00);
-insert into price_lists (service, price) values('consultation', $2400.00);
-insert into price_lists (service, price) values('conversation', $5500.00);
-insert into price_lists (service, price) values('inspection', $2100.00);
+<pre><code class="language-sql">insert into price_lists (service, price) values('service 1', 1900.00);
+insert into price_lists (service, price) values('service 2', 2400.00);
+insert into price_lists (service, price) values('service 3', 5500.00);
 </code></pre>
 <p><br/></p>
 <h1 id="schedule">SCHEDULE</h1>
@@ -390,10 +389,9 @@ lr3=# insert into schedule (working_days) values('{wed, fri}');
 );
 </code></pre>
 <p><strong>Код заполнения:</strong></p>
-<pre><code class="language-sql">insert into doctors (name, speciality, date_of_birth, price_list_id, schedule_id) values('petr', 'cardiologist', '1999-04-23', 1, 1);
-insert into doctors (name, speciality, date_of_birth, price_list_id, schedule_id) values('natasha', 'ent', '1999-04-23', 4, 2);
-insert into doctors (name, speciality, date_of_birth, price_list_id, schedule_id) values('larisa', 'psychologist', '1999-02-23', 2, 3);
-insert into doctors (name, speciality, date_of_birth, price_list_id, schedule_id) values('makar', 'pathologist', '1999-05-28', 3, 1);
+<pre><code class="language-sql">insert into doctors (name, speciality, date_of_birth, price_list_id, schedule_id) values('doctor 1', 'spec 1', '1999-04-23', 1, 1);
+insert into doctors (name, speciality, date_of_birth, price_list_id, schedule_id) values('doctor 2', 'spec 2', '1999-04-23', 2, 2);
+insert into doctors (name, speciality, date_of_birth, price_list_id, schedule_id) values('doctor 3', 'spec 3', '1999-02-23', 2, 3);
 </code></pre>
 <p><br/></p>
 <h1 id="appointments">APPOINTMENTS</h1>
@@ -475,13 +473,8 @@ insert into doctors (name, speciality, date_of_birth, price_list_id, schedule_id
 </code></pre>
 <p><strong>Код заполнения:</strong></p>
 <pre><code class="language-sql">insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-01', '12:00:00', 1, 1, 1);
-insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-02', '13:00:00', 4, 1, 2);
+insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-02', '13:00:00', 2, 1, 2);
 insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-03', '17:00:00', 3, 2, 3);
-insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-04', '15:00:00', 3, 2, 3);
-insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-04', '19:00:00', 3, 2, 1);
-insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-10', '12:30:00', 2, 1, 1);
-insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-10', '17:30:00', 2, 3, 3);
-insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-15', '18:30:00', 3, 3, 1);
 </code></pre>
 <p><br/></p>
 <h1 id="medical-records">MEDICAL RECORDS</h1>
@@ -547,11 +540,6 @@ insert into appointments (date, time, doctor_id, office_id, patient_id) values('
 <pre><code class="language-sql">insert into medical_records (diagnosis, condition, recommendation, appointment_id) values ('vse ochen ploho', 'pochty umer', 'ne prihodite bolshe', 1);
 insert into medical_records (diagnosis, condition, recommendation, appointment_id) values ('vse ochen ploho', 'umer', 'ne prihodite bolshe', 2);
 insert into medical_records (diagnosis, condition, recommendation, appointment_id) values ('cool', 'alive', 'ne boleyte', 3);
-insert into medical_records (diagnosis, condition, recommendation, appointment_id) values ('cool', 'alive', 'ne boleyte', 4);
-insert into medical_records (diagnosis, condition, recommendation, appointment_id) values ('cool', 'alive', 'ne prihodite bolshe', 5);
-insert into medical_records (diagnosis, condition, recommendation, appointment_id) values ('vse ochen ploho', 'alive', 'ne boleyte', 6);
-insert into medical_records (diagnosis, condition, recommendation, appointment_id) values ('cool', 'pochty umer', 'ne boleyte', 7);
-insert into medical_records (diagnosis, condition, recommendation, appointment_id) values ('cool', 'alive', 'ne prihodite bolshee', 8);
 </code></pre></div>
             </div>
         </div>
@@ -561,11 +549,11 @@ insert into medical_records (diagnosis, condition, recommendation, appointment_i
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = "..",
+            var base_url = ".",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="../js/base.js" defer></script>
-        <script src="../search/main.js" defer></script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -575,16 +563,13 @@ insert into medical_records (diagnosis, condition, recommendation, appointment_i
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             </div>
             <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
+                <p>From here you can search these documents. Enter your search terms below.</p>
                 <form>
                     <div class="form-group">
                         <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results"></div>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
             </div>
             <div class="modal-footer">
             </div>
