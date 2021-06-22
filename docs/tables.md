@@ -70,9 +70,10 @@ create table price_list (
 
 **Код заполнения:**
 ```sql
-insert into price_lists (service, price) values('service 1', 1900.00);
-insert into price_lists (service, price) values('service 2', 2400.00);
-insert into price_lists (service, price) values('service 3', 5500.00);
+insert into price_lists (service, price) values('treatment', $1900.00);
+insert into price_lists (service, price) values('consultation', $2400.00);
+insert into price_lists (service, price) values('conversation', $5500.00);
+insert into price_lists (service, price) values('inspection', $2100.00);
 ```
 
 <br/>
@@ -126,9 +127,10 @@ create table doctors(
 
 **Код заполнения:**
 ```sql
-insert into doctors (name, speciality, date_of_birth, price_list_id, schedule_id) values('doctor 1', 'spec 1', '1999-04-23', 1, 1);
-insert into doctors (name, speciality, date_of_birth, price_list_id, schedule_id) values('doctor 2', 'spec 2', '1999-04-23', 2, 2);
-insert into doctors (name, speciality, date_of_birth, price_list_id, schedule_id) values('doctor 3', 'spec 3', '1999-02-23', 2, 3);
+insert into doctors (name, speciality, date_of_birth, price_list_id, schedule_id) values('petr', 'cardiologist', '1999-04-23', 1, 1);
+insert into doctors (name, speciality, date_of_birth, price_list_id, schedule_id) values('natasha', 'ent', '1999-04-23', 4, 2);
+insert into doctors (name, speciality, date_of_birth, price_list_id, schedule_id) values('larisa', 'psychologist', '1999-02-23', 2, 3);
+insert into doctors (name, speciality, date_of_birth, price_list_id, schedule_id) values('makar', 'pathologist', '1999-05-28', 3, 1);
 ```
 
 <br/>
@@ -163,8 +165,13 @@ create table appointments (
 **Код заполнения:**
 ```sql
 insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-01', '12:00:00', 1, 1, 1);
-insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-02', '13:00:00', 2, 1, 2);
+insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-02', '13:00:00', 4, 1, 2);
 insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-03', '17:00:00', 3, 2, 3);
+insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-04', '15:00:00', 3, 2, 3);
+insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-04', '19:00:00', 3, 2, 1);
+insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-10', '12:30:00', 2, 1, 1);
+insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-10', '17:30:00', 2, 3, 3);
+insert into appointments (date, time, doctor_id, office_id, patient_id) values('2020-01-15', '18:30:00', 3, 3, 1);
 ```
 
 <br/>
@@ -195,4 +202,9 @@ create table medical_records (
 insert into medical_records (diagnosis, condition, recommendation, appointment_id) values ('vse ochen ploho', 'pochty umer', 'ne prihodite bolshe', 1);
 insert into medical_records (diagnosis, condition, recommendation, appointment_id) values ('vse ochen ploho', 'umer', 'ne prihodite bolshe', 2);
 insert into medical_records (diagnosis, condition, recommendation, appointment_id) values ('cool', 'alive', 'ne boleyte', 3);
+insert into medical_records (diagnosis, condition, recommendation, appointment_id) values ('cool', 'alive', 'ne boleyte', 4);
+insert into medical_records (diagnosis, condition, recommendation, appointment_id) values ('cool', 'alive', 'ne prihodite bolshe', 5);
+insert into medical_records (diagnosis, condition, recommendation, appointment_id) values ('vse ochen ploho', 'alive', 'ne boleyte', 6);
+insert into medical_records (diagnosis, condition, recommendation, appointment_id) values ('cool', 'pochty umer', 'ne boleyte', 7);
+insert into medical_records (diagnosis, condition, recommendation, appointment_id) values ('cool', 'alive', 'ne prihodite bolshee', 8);
 ```
