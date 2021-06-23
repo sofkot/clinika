@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>ЗАПРОСЫ - КЛИНИКА</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">КЛИНИКА</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Главная</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../DB/" class="nav-link">СУБД</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../tables/" class="nav-link">БД</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">ЗАПРОСЫ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../php/" class="nav-link">ИНТЕРФЕЙСЫ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../mongo/" class="nav-link">MONGODB</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../tables/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../php/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#1st-request" class="nav-link">1ST REQUEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#2nd-request" class="nav-link">2ND REQUEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#3rd-request" class="nav-link">3RD REQUEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#4th-request" class="nav-link">4TH REQUEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#5th-request" class="nav-link">5TH REQUEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#6th-request" class="nav-link">6TH REQUEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#7th-request" class="nav-link">7TH REQUEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#8th-request" class="nav-link">8TH REQUEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#9th-request" class="nav-link">9TH REQUEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#10th-request" class="nav-link">10TH REQUEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#11th-request" class="nav-link">11TH REQUEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#12th-request" class="nav-link">12TH REQUEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#13th-request" class="nav-link">13TH REQUEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#14th-request" class="nav-link">14TH REQUEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#15th-request" class="nav-link">15TH REQUEST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="1st-request">1ST REQUEST</h1>
+<p><strong>Описание запроса:</strong></p>
+<pre><code>Вывести данные врачей с информацией об их рабочих днях
+</code></pre>
+<p><strong>Код запроса:</strong></p>
+<pre><code>select name, speciality, working_days from doctors
+inner join schedule on doctors.schedule_id = schedule.id
+order by name desc;
+</code></pre>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>speciality</th>
+<th>working_days</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>petr</td>
+<td>cardiologist</td>
+<td>{mon,tue}</td>
+</tr>
+<tr>
+<td>natasha</td>
+<td>ent</td>
+<td>{mon,wed}</td>
+</tr>
+<tr>
+<td>makar</td>
+<td>pathologist</td>
+<td>{mon,tue}</td>
+</tr>
+<tr>
+<td>larisa</td>
+<td>psychologist</td>
+<td>{wed, fri}</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h1 id="2nd-request">2ND REQUEST</h1>
+<p><strong>Описание запроса:</strong></p>
+<pre><code>Вывести данные о приёмах с отображением информации о пациентах
+</code></pre>
+<p><strong>Код запроса:</strong></p>
+<pre><code>select * from appointments
+inner join patients on appointments.patient_id = patients.id
+order by time;
+</code></pre>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>date</th>
+<th>time</th>
+<th>doctor_id</th>
+<th>office_id</th>
+<th>patient_id</th>
+<th>id</th>
+<th>name</th>
+<th>phone_number</th>
+<th>date_of_birth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2020-01-01</td>
+<td>12:00:00</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>sereja</td>
+<td>+79119991271</td>
+<td>2002-05-05</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2020-01-10</td>
+<td>12:30:00</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>sereja</td>
+<td>+79119991271</td>
+<td>2002-05-05</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2020-01-02</td>
+<td>13:00:00</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>dima</td>
+<td>+79119391271</td>
+<td>2002-05-01</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2020-01-04</td>
+<td>15:00:00</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>oleg</td>
+<td>+79113791271</td>
+<td>2002-05-12</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2020-01-03</td>
+<td>17:00:00</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>oleg</td>
+<td>+79113791271</td>
+<td>2002-05-12</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2020-01-10</td>
+<td>17:30:00</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>oleg</td>
+<td>+79113791271</td>
+<td>2002-05-12</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2020-01-15</td>
+<td>18:30:00</td>
+<td>3</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>sereja</td>
+<td>+79119991271</td>
+<td>2002-05-05</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2020-01-04</td>
+<td>19:00:00</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>sereja</td>
+<td>+79119991271</td>
+<td>2002-05-05</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h1 id="3rd-request">3RD REQUEST</h1>
+<p><strong>Описание запроса:</strong></p>
+<pre><code>Вывести данные о записях в медицинскую карту за приём(ы) 2020-01-02 
+</code></pre>
+<p><strong>Код запроса:</strong></p>
+<pre><code>select * from medical_records where id = (
+select id from appointments where date = '2020-01-02'
+);
+</code></pre>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>diagnosis</th>
+<th>condition</th>
+<th>recommendation</th>
+<th>appointment_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>vse ochen ploho</td>
+<td>umer</td>
+<td>ne prihodite bolshe</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h1 id="4th-request">4TH REQUEST</h1>
+<p><strong>Описание запроса:</strong></p>
+<pre><code>Вывести данные о приёмах, проводившихся в 1-ом кабинете, а также не в 12:00:00
+</code></pre>
+<p><strong>Код запроса:</strong></p>
+<pre><code>select * from appointments where office_id = 1 and not time = '12:00:00';
+</code></pre>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>date</th>
+<th>time</th>
+<th>doctor_id</th>
+<th>office_id</th>
+<th>patient_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>2020-01-02</td>
+<td>13:00:00</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2020-01-10</td>
+<td>12:30:00</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h1 id="5th-request">5TH REQUEST</h1>
+<p><strong>Описание запроса:</strong></p>
+<pre><code>Вывести возраст пациентов клиники
+</code></pre>
+<p><strong>Код запроса:</strong></p>
+<pre><code>select *, age(date_of_birth) as age from patients;
+</code></pre>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>phone_number</th>
+<th>date_of_birth</th>
+<th>age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>sereja</td>
+<td>+79119991271</td>
+<td>2002-05-05</td>
+<td>19 years 6 days</td>
+</tr>
+<tr>
+<td>2</td>
+<td>dima</td>
+<td>+79119391271</td>
+<td>2002-05-01</td>
+<td>19 years 10 days</td>
+</tr>
+<tr>
+<td>3</td>
+<td>oleg</td>
+<td>+79113791271</td>
+<td>2002-05-12</td>
+<td>18 years 11 mons 30 days</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h1 id="6th-request">6TH REQUEST</h1>
+<p><strong>Описание запроса:</strong></p>
+<pre><code>Вывести данные о приёмах в период с 2020-01-01 по 2020-01-07
+</code></pre>
+<p><strong>Код запроса:</strong></p>
+<pre><code>select * appointments where date between '2020-01-01' and '2020-01-07';
+</code></pre>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>date</th>
+<th>time</th>
+<th>doctor_id</th>
+<th>office_id</th>
+<th>patient_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2020-01-01</td>
+<td>12:00:00</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2020-01-02</td>
+<td>13:00:00</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2020-01-03</td>
+<td>17:00:00</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2020-01-04</td>
+<td>15:00:00</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2020-01-04</td>
+<td>19:00:00</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h1 id="7th-request">7TH REQUEST</h1>
+<p><strong>Описание запроса:</strong></p>
+<pre><code>Вывести данные о врачах клиники с форматированием: отобразить имя и должность врача в одной строке с разделителем
+</code></pre>
+<p><strong>Код запроса:</strong></p>
+<pre><code>select *, concat_ws(' - ', name, speciality) as info from doctors;
+</code></pre>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>speciality</th>
+<th>date_of_birth</th>
+<th>price_list_id</th>
+<th>schedule_id</th>
+<th>info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>petr</td>
+<td>cardiologist</td>
+<td>1999-04-23</td>
+<td>1</td>
+<td>1</td>
+<td>petr - cardiologist</td>
+</tr>
+<tr>
+<td>2</td>
+<td>natasha</td>
+<td>ent</td>
+<td>1999-04-23</td>
+<td>4</td>
+<td>2</td>
+<td>natasha - ent</td>
+</tr>
+<tr>
+<td>3</td>
+<td>larisa</td>
+<td>psychologist</td>
+<td>1999-02-23</td>
+<td>2</td>
+<td>3</td>
+<td>larisa - psychologist</td>
+</tr>
+<tr>
+<td>4</td>
+<td>makar</td>
+<td>pathologist</td>
+<td>1999-05-28</td>
+<td>3</td>
+<td>1</td>
+<td>makar - pathologist</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h1 id="8th-request">8TH REQUEST</h1>
+<p><strong>Описание запроса:</strong></p>
+<pre><code>Вывести длину имён врачей
+</code></pre>
+<p><strong>Код запроса:</strong></p>
+<pre><code>select length(name) from doctors;
+</code></pre>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+</tr>
+<tr>
+<td>6</td>
+</tr>
+<tr>
+<td>7</td>
+</tr>
+<tr>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h1 id="9th-request">9TH REQUEST</h1>
+<p><strong>Описание запроса:</strong></p>
+<pre><code>Вывести имена врачей верхним регистром
+</code></pre>
+<p><strong>Код запроса:</strong></p>
+<pre><code>select upper(name) from doctors;
+</code></pre>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>upper</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MAKAR</td>
+</tr>
+<tr>
+<td>LARISA</td>
+</tr>
+<tr>
+<td>NATASHA</td>
+</tr>
+<tr>
+<td>PETR</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h1 id="10th-request">10TH REQUEST</h1>
+<p><strong>Описание запроса:</strong></p>
+<pre><code>Вывести данные о приёме(ах) у врача патологоанатома, с состоянием пациента: умер
+</code></pre>
+<p><strong>Код запроса:</strong></p>
+<pre><code>select * from medical_records
+inner join appointments on (medical_records.appointment_id = appointments.id)
+inner join doctors on (appointments.doctor_id = doctors.id)
+where medical_records.condition = 'umer' and doctors.speciality = 'pathologist';
+</code></pre>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>diagnosis</th>
+<th>condition</th>
+<th>recommendation</th>
+<th>appointment_id</th>
+<th>id</th>
+<th>date</th>
+<th>time</th>
+<th>doctor_id</th>
+<th>office_id</th>
+<th>patient_id</th>
+<th>id</th>
+<th>name</th>
+<th>speciality</th>
+<th>date_of_birth</th>
+<th>price_list_id</th>
+<th>schedule_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>vse ochen ploho</td>
+<td>umer</td>
+<td>ne prihodite bolshe</td>
+<td>2</td>
+<td>2</td>
+<td>2020-01-02</td>
+<td>13:00:00</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+<td>makar</td>
+<td>pathologist</td>
+<td>1999-05-28</td>
+<td>3</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h1 id="11th-request">11TH REQUEST</h1>
+<p><strong>Описание запроса:</strong></p>
+<pre><code>Вывести имена доктора и пациента, который к нему приходил, а также дату приёма
+</code></pre>
+<p><strong>Код запроса:</strong></p>
+<pre><code>select doctors.name, patients.name, appointments.date from appointments
+inner join doctors on (appointments.doctor_id = doctors.id)
+inner join patients on (appointments.patient_id = patients.id);
+</code></pre>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>name</th>
+<th>date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>petr</td>
+<td>sereja</td>
+<td>2020-01-01</td>
+</tr>
+<tr>
+<td>larisa</td>
+<td>oleg</td>
+<td>2020-01-03</td>
+</tr>
+<tr>
+<td>makar</td>
+<td>dima</td>
+<td>2020-01-02</td>
+</tr>
+<tr>
+<td>larisa</td>
+<td>oleg</td>
+<td>2020-01-04</td>
+</tr>
+<tr>
+<td>larisa</td>
+<td>sereja</td>
+<td>2020-01-04</td>
+</tr>
+<tr>
+<td>natasha</td>
+<td>sereja</td>
+<td>2020-01-10</td>
+</tr>
+<tr>
+<td>natasha</td>
+<td>oleg</td>
+<td>2020-01-10</td>
+</tr>
+<tr>
+<td>larisa</td>
+<td>sereja</td>
+<td>2020-01-15</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h1 id="12th-request">12TH REQUEST</h1>
+<p><strong>Описание запроса:</strong></p>
+<pre><code>Вывести данные о докторах с количеством пациентов, приходивших к ним на приём
+</code></pre>
+<p><strong>Код запроса:</strong></p>
+<pre><code>select doctors.id, doctors.name, count(distinct patients.name) from appointments
+inner join doctors on (appointments.doctor_id = doctors.id)
+inner join patients on (appointments.patient_id = patients.id)
+group by doctors.id;
+</code></pre>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>petr</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>natasha</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>larisa</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>makar</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h1 id="13th-request">13TH REQUEST</h1>
+<p><strong>Описание запроса:</strong></p>
+<pre><code>Вывести данные о заработанных деньгах каждого врача от проведённых услуг
+</code></pre>
+<p><strong>Код запроса:</strong></p>
+<pre><code>select appointments.doctor_id, count(appointments.doctor_id)*price_lists.price as sum from appointments
+inner join doctors on (appointments.doctor_id = doctors.id)
+inner join price_lists on (doctors.proce_list_id = price_lists.id)
+group by appointments.doctor_id, price_lists.price;
+</code></pre>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>doctor_id</th>
+<th>sum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>$1,900.00</td>
+</tr>
+<tr>
+<td>2</td>
+<td>$4,200.00</td>
+</tr>
+<tr>
+<td>3</td>
+<td>$9,600.00</td>
+</tr>
+<tr>
+<td>4</td>
+<td>$5,500.00</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h1 id="14th-request">14TH REQUEST</h1>
+<p><strong>Описание запроса:</strong></p>
+<pre><code>Вывести данные кабинет(а)ов, в котор(ом)ых проводилось более 2-х приёмов
+</code></pre>
+<p><strong>Код запроса:</strong></p>
+<pre><code>select office_id, count(office_id) from appointments
+group by office_id
+having count(office_id) &gt; 2;
+</code></pre>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>office_id</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h1 id="15th-request">15TH REQUEST</h1>
+<p><strong>Описание запроса:</strong></p>
+<pre><code>Вывести дату(ы) приёмов, в которую(ые) было от 2-х до 3-х приёмов пациентов
+</code></pre>
+<p><strong>Код запроса:</strong></p>
+<pre><code>select date, count(date) from appointments
+group by date
+having count(date) in (2,3);
+</code></pre>
+<p><strong>Результаты запроса:</strong></p>
+<table>
+<thead>
+<tr>
+<th>date</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2020-01-04</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2020-01-10</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

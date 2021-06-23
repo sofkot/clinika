@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>MONGODB - КЛИНИКА</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">КЛИНИКА</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Главная</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../DB/" class="nav-link">СУБД</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../tables/" class="nav-link">БД</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../requests/" class="nav-link">ЗАПРОСЫ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../php/" class="nav-link">ИНТЕРФЕЙСЫ</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">MONGODB</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../php/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">Изменённая БД</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#_2" class="nav-link">Создание БД</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#patient" class="nav-link">PATIENT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#doctor" class="nav-link">DOCTOR</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#appointment" class="nav-link">APPOINTMENT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#_3" class="nav-link">Запросы к БД</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#request-1st" class="nav-link">REQUEST 1ST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#request-2nd" class="nav-link">REQUEST 2ND</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#request-3rd" class="nav-link">REQUEST 3RD</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#request-4th" class="nav-link">REQUEST 4TH</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#request-5th" class="nav-link">REQUEST 5TH</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">Изменённая БД</h1>
+<p><img alt="схема" src="/5.png" /></p>
+<p><br/></p>
+<h1 id="_2">Создание БД</h1>
+<pre><code>use db
+    switched to db db
+db.createCollection(&quot;Patient&quot;)
+    { &quot;ok&quot; : 1 }
+db.createCollection(&quot;Appointment&quot;)
+    { &quot;ok&quot; : 1 }
+db.createCollection(&quot;Doctor&quot;)
+    { &quot;ok&quot; : 1 }
+
+</code></pre>
+<h2 id="patient">PATIENT</h2>
+<p><strong>Заполнение данными</strong></p>
+<pre><code>
+db.Patient.insertOne({'name' = 'sereja', 'phone_number' = '+7911999127', 'date_of_birth' = '2002-05-05'})
+db.Patient.insertOne({'name' = 'dima', 'phone_number' = '+79119391271', 'date_of_birth' = '2002-05-01'})
+db.Patient.insertOne({'name' = 'oleg', 'phone_number' = '+79113791271', 'date_of_birth' = '2002-05-12'})
+
+</code></pre>
+<p><strong>Результаты заполнения</strong></p>
+<pre><code>
+db.Patient.find().pretty()
+{
+        &quot;_id&quot; : ObjectId(&quot;60d201cd519767a01e5b0733&quot;),
+        &quot;name&quot; : &quot;sereja&quot;,
+        &quot;phone_number&quot; : &quot;+7911999127&quot;,
+        &quot;date_of_birth&quot; : &quot;2002-05-05&quot;
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d201f2519767a01e5b0734&quot;),
+        &quot;name&quot; : &quot;dima&quot;,
+        &quot;phone_number&quot; : &quot;+79119391271&quot;,
+        &quot;date_of_birth&quot; : &quot;2002-05-01&quot;
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d2021b519767a01e5b0735&quot;),
+        &quot;name&quot; : &quot;oleg&quot;,
+        &quot;phone_number&quot; : &quot;+79113791271&quot;,
+        &quot;date_of_birth&quot; : &quot;2002-05-12&quot;
+}
+
+</code></pre>
+<h2 id="doctor">DOCTOR</h2>
+<p><strong>Заполнение данными</strong></p>
+<pre><code>
+db.Doctor.insertOne( { 'name' : 'petr', 'speciality' : 'cardiologist', 'date_of_birth' : '1999-04-23', 'price_list'  : { 'service' : 'treatment', 'price' : 1900 }, 'schedule' : { 'working_days' : [ 'mon', 'tue' ] } } )
+    {
+        &quot;acknowledged&quot; : true,
+        &quot;insertedId&quot; : ObjectId(&quot;60d226c2519767a01e5b0736&quot;)
+    }
+
+db.Doctor.insertOne( { 'name' : 'natasha', 'speciality' : 'ent', 'date_of_birth' : '1999-04-23', 'price_list'  : { 'service' : 'inspection', 'price' : 2100 }, 'schedule' : { 'working_days' : [ 'mon', 'wed' ] } } )
+    {
+        &quot;acknowledged&quot; : true,
+        &quot;insertedId&quot; : ObjectId(&quot;60d227a3519767a01e5b0737&quot;)
+    }
+
+db.Doctor.insertOne( { 'name' : 'larisa', 'speciality' : 'psychologist', 'date_of_birth' : '1999-02-23', 'price_list'  : { 'service' : 'consultation', 'price' : 2400 }, 'schedule' : { 'working_days' : [ 'wed', 'fri' ] } } )
+    {
+        &quot;acknowledged&quot; : true,
+        &quot;insertedId&quot; : ObjectId(&quot;60d22808519767a01e5b0738&quot;)
+    }
+
+db.Doctor.insertOne( { 'name' : 'makar', 'speciality' : 'pathologist', 'date_of_birth' : '1999-05-28', 'price_list'  : { 'service' : 'conversation', 'price' : 5500 }, 'schedule' : { 'working_days' : [ 'mon', 'tue' ] } } )
+    {
+        &quot;acknowledged&quot; : true,
+        &quot;insertedId&quot; : ObjectId(&quot;60d2286b519767a01e5b0739&quot;)
+    }
+
+</code></pre>
+<p><strong>Результаты заполнения</strong></p>
+<pre><code>
+db.Doctor.find().pretty()
+{
+        &quot;_id&quot; : ObjectId(&quot;60d226c2519767a01e5b0736&quot;),
+        &quot;name&quot; : &quot;petr&quot;,
+        &quot;speciality&quot; : &quot;cardiologist&quot;,
+        &quot;date_of_birth&quot; : &quot;1999-04-23&quot;,
+        &quot;price_list&quot; : {
+                &quot;service&quot; : &quot;treatment&quot;,
+                &quot;price&quot; : 1900
+        },
+        &quot;schedule&quot; : {
+                &quot;working_days&quot; : [
+                        &quot;mon&quot;,
+                        &quot;tue&quot;
+                ]
+        }
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d227a3519767a01e5b0737&quot;),
+        &quot;name&quot; : &quot;natasha&quot;,
+        &quot;speciality&quot; : &quot;ent&quot;,
+        &quot;date_of_birth&quot; : &quot;1999-04-23&quot;,
+        &quot;price_list&quot; : {
+                &quot;service&quot; : &quot;inspection&quot;,
+                &quot;price&quot; : 2100
+        },
+        &quot;schedule&quot; : {
+                &quot;working_days&quot; : [
+                        &quot;mon&quot;,
+                        &quot;wed&quot;
+                ]
+        }
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d22808519767a01e5b0738&quot;),
+        &quot;name&quot; : &quot;larisa&quot;,
+        &quot;speciality&quot; : &quot;psychologist&quot;,
+        &quot;date_of_birth&quot; : &quot;1999-02-23&quot;,
+        &quot;price_list&quot; : {
+                &quot;service&quot; : &quot;consultation&quot;,
+                &quot;price&quot; : 2400
+        },
+        &quot;schedule&quot; : {
+                &quot;working_days&quot; : [
+                        &quot;wed&quot;,
+                        &quot;fri&quot;
+                ]
+        }
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d2286b519767a01e5b0739&quot;),
+        &quot;name&quot; : &quot;makar&quot;,
+        &quot;speciality&quot; : &quot;pathologist&quot;,
+        &quot;date_of_birth&quot; : &quot;1999-05-28&quot;,
+        &quot;price_list&quot; : {
+                &quot;service&quot; : &quot;conversation&quot;,
+                &quot;price&quot; : 5500
+        },
+        &quot;schedule&quot; : {
+                &quot;working_days&quot; : [
+                        &quot;mon&quot;,
+                        &quot;tue&quot;
+                ]
+        }
+}
+
+</code></pre>
+<h2 id="appointment">APPOINTMENT</h2>
+<p><strong>Заполнение данными</strong></p>
+<pre><code>
+db.Appointment.insertOne( { 'date' : '2020-01-01', 'patient' : ObjectId(&quot;60d201cd519767a01e5b0733&quot;), 'doctor' : ObjectId(&quot;60d226c2519767a01e5b0736&quot;), 'office' : { 'begin' : '12:00:00', 'end' : '16:00:00', 'phone_number' : '+70001113344' }, 'medical_record' : { 'diagnosis' : 'vse ochen ploho', 'condition' : 'pochty umer', 'recommendation' : 'ne prihodite bolshe' } } )
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedId&quot; : ObjectId(&quot;60d22c13519767a01e5b073a&quot;)
+}
+
+db.Appointment.insertOne( { 'date' : '2020-01-02', 'patient' : ObjectId(&quot;60d201f2519767a01e5b0734&quot;), 'doctor' : ObjectId(&quot;60d2286b519767a01e5b0739&quot;), 'office' : { 'begin' : '12:00:00', 'end' : '16:00:00', 'phone_number' : '+70001113344' }, 'medical_record' : { 'diagnosis' : 'vse ochen ploho', 'condition' : 'umer', 'recommendation' : 'ne prihodite bolshe' } } )
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedId&quot; : ObjectId(&quot;60d22c9d519767a01e5b073b&quot;)
+}
+
+db.Appointment.insertOne( { 'date' : '2020-01-03', 'patient' : ObjectId(&quot;60d2021b519767a01e5b0735&quot;), 'doctor' : ObjectId(&quot;60d22808519767a01e5b0738&quot;), 'office' : { 'begin' : '12:00:00', 'end' : '18:00:00', 'phone_number' : '+70001213344' }, 'medical_record' : { 'diagnosis' : 'cool', 'condition' : 'alive', 'recommendation' : 'ne boleyte' } } )
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedId&quot; : ObjectId(&quot;60d22d48519767a01e5b073c&quot;)
+}
+
+db.Appointment.insertOne( { 'date' : '2020-01-04', 'patient' : ObjectId(&quot;60d2021b519767a01e5b0735&quot;), 'doctor' : ObjectId(&quot;60d22808519767a01e5b0738&quot;), 'office' : { 'begin' : '12:00:00', 'end' : '18:00:00', 'phone_number' : '+70001213344' }, 'medical_record' : { 'diagnosis' : 'cool', 'condition' : 'alive', 'recommendation' : 'ne boleyte' } } )
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedId&quot; : ObjectId(&quot;60d22d98519767a01e5b073d&quot;)
+}
+
+db.Appointment.insertOne( { 'date' : '2020-01-04', 'patient' : ObjectId(&quot;60d201cd519767a01e5b0733&quot;), 'doctor' : ObjectId(&quot;60d22808519767a01e5b0738&quot;), 'office' : { 'begin' : '12:00:00', 'end' : '18:00:00', 'phone_number' : '+70001213344' }, 'medical_record' : { 'diagnosis' : 'cool', 'condition' : 'alive', 'recommendation' : 'ne prihodite bolshe' } } )
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedId&quot; : ObjectId(&quot;60d22e17519767a01e5b073e&quot;)
+}
+
+db.Appointment.insertOne( { 'date' : '2020-01-10', 'patient' : ObjectId(&quot;60d201cd519767a01e5b0733&quot;), 'doctor' : ObjectId(&quot;60d227a3519767a01e5b0737&quot;), 'office' : { 'begin' : '12:00:00', 'end' : '16:00:00', 'phone_number' : '+70001113344' }, 'medical_record' : { 'diagnosis' : 'vse ochen ploho', 'condition' : 'alive', 'recommendation' : 'ne boleyte' } } )
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedId&quot; : ObjectId(&quot;60d22ec6519767a01e5b073f&quot;)
+}
+
+db.Appointment.insertOne( { 'date' : '2020-01-10', 'patient' : ObjectId(&quot;60d2021b519767a01e5b0735&quot;), 'doctor' : ObjectId(&quot;60d227a3519767a01e5b0737&quot;), 'office' : { 'begin' : '15:00:00', 'end' : '21:30:00', 'phone_number' : '+70001213390' }, 'medical_record' : { 'diagnosis' : 'cool', 'condition' : 'pochty umer', 'recommendation' : 'ne boleyte' } } )
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedId&quot; : ObjectId(&quot;60d22f58519767a01e5b0740&quot;)
+}
+
+db.Appointment.insertOne( { 'date' : '2020-01-15', 'patient' : ObjectId(&quot;60d201cd519767a01e5b0733&quot;), 'doctor' : ObjectId(&quot;60d22808519767a01e5b0738&quot;), 'office' : { 'begin' : '12:00:00', 'end' : '16:00:00', 'phone_number' : '+70001113344' }, 'medical_record' : { 'diagnosis' : 'cool', 'condition' : 'alive', 'recommendation' : 'ne prihodite bolshe' } } )
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedId&quot; : ObjectId(&quot;60d23009519767a01e5b0741&quot;)
+}
+
+</code></pre>
+<p><strong>Результаты заполнения</strong></p>
+<pre><code>
+db.Appointment.find().pretty()
+{
+        &quot;_id&quot; : ObjectId(&quot;60d22c13519767a01e5b073a&quot;),
+        &quot;date&quot; : &quot;2020-01-01&quot;,
+        &quot;patient&quot; : ObjectId(&quot;60d201cd519767a01e5b0733&quot;),
+        &quot;doctor&quot; : ObjectId(&quot;60d226c2519767a01e5b0736&quot;),
+        &quot;office&quot; : {
+                &quot;begin&quot; : &quot;12:00:00&quot;,
+                &quot;end&quot; : &quot;16:00:00&quot;,
+                &quot;phone_number&quot; : &quot;+70001113344&quot;
+        },
+        &quot;medical_record&quot; : {
+                &quot;diagnosis&quot; : &quot;vse ochen ploho&quot;,
+                &quot;condition&quot; : &quot;pochty umer&quot;,
+                &quot;recommendation&quot; : &quot;ne prihodite bolshe&quot;
+        }
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d22c9d519767a01e5b073b&quot;),
+        &quot;date&quot; : &quot;2020-01-02&quot;,
+        &quot;patient&quot; : ObjectId(&quot;60d201f2519767a01e5b0734&quot;),
+        &quot;doctor&quot; : ObjectId(&quot;60d2286b519767a01e5b0739&quot;),
+        &quot;office&quot; : {
+                &quot;begin&quot; : &quot;12:00:00&quot;,
+                &quot;end&quot; : &quot;16:00:00&quot;,
+                &quot;phone_number&quot; : &quot;+70001113344&quot;
+        },
+        &quot;medical_record&quot; : {
+                &quot;diagnosis&quot; : &quot;vse ochen ploho&quot;,
+                &quot;condition&quot; : &quot;umer&quot;,
+                &quot;recommendation&quot; : &quot;ne prihodite bolshe&quot;
+        }
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d22d48519767a01e5b073c&quot;),
+        &quot;date&quot; : &quot;2020-01-03&quot;,
+        &quot;patient&quot; : ObjectId(&quot;60d2021b519767a01e5b0735&quot;),
+        &quot;doctor&quot; : ObjectId(&quot;60d22808519767a01e5b0738&quot;),
+        &quot;office&quot; : {
+                &quot;begin&quot; : &quot;12:00:00&quot;,
+                &quot;end&quot; : &quot;18:00:00&quot;,
+                &quot;phone_number&quot; : &quot;+70001213344&quot;
+        },
+        &quot;medical_record&quot; : {
+                &quot;diagnosis&quot; : &quot;cool&quot;,
+                &quot;condition&quot; : &quot;alive&quot;,
+                &quot;recommendation&quot; : &quot;ne boleyte&quot;
+        }
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d22d98519767a01e5b073d&quot;),
+        &quot;date&quot; : &quot;2020-01-04&quot;,
+        &quot;patient&quot; : ObjectId(&quot;60d2021b519767a01e5b0735&quot;),
+        &quot;doctor&quot; : ObjectId(&quot;60d22808519767a01e5b0738&quot;),
+        &quot;office&quot; : {
+                &quot;begin&quot; : &quot;12:00:00&quot;,
+                &quot;end&quot; : &quot;18:00:00&quot;,
+                &quot;phone_number&quot; : &quot;+70001213344&quot;
+        },
+        &quot;medical_record&quot; : {
+                &quot;diagnosis&quot; : &quot;cool&quot;,
+                &quot;condition&quot; : &quot;alive&quot;,
+                &quot;recommendation&quot; : &quot;ne boleyte&quot;
+        }
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d22e17519767a01e5b073e&quot;),
+        &quot;date&quot; : &quot;2020-01-04&quot;,
+        &quot;patient&quot; : ObjectId(&quot;60d201cd519767a01e5b0733&quot;),
+        &quot;doctor&quot; : ObjectId(&quot;60d22808519767a01e5b0738&quot;),
+        &quot;office&quot; : {
+                &quot;begin&quot; : &quot;12:00:00&quot;,
+                &quot;end&quot; : &quot;18:00:00&quot;,
+                &quot;phone_number&quot; : &quot;+70001213344&quot;
+        },
+        &quot;medical_record&quot; : {
+                &quot;diagnosis&quot; : &quot;cool&quot;,
+                &quot;condition&quot; : &quot;alive&quot;,
+                &quot;recommendation&quot; : &quot;ne prihodite bolshe&quot;
+        }
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d22ec6519767a01e5b073f&quot;),
+        &quot;date&quot; : &quot;2020-01-10&quot;,
+        &quot;patient&quot; : ObjectId(&quot;60d201cd519767a01e5b0733&quot;),
+        &quot;doctor&quot; : ObjectId(&quot;60d227a3519767a01e5b0737&quot;),
+        &quot;office&quot; : {
+                &quot;begin&quot; : &quot;12:00:00&quot;,
+                &quot;end&quot; : &quot;16:00:00&quot;,
+                &quot;phone_number&quot; : &quot;+70001113344&quot;
+        },
+        &quot;medical_record&quot; : {
+                &quot;diagnosis&quot; : &quot;vse ochen ploho&quot;,
+                &quot;condition&quot; : &quot;alive&quot;,
+                &quot;recommendation&quot; : &quot;ne boleyte&quot;
+        }
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d22f58519767a01e5b0740&quot;),
+        &quot;date&quot; : &quot;2020-01-10&quot;,
+        &quot;patient&quot; : ObjectId(&quot;60d2021b519767a01e5b0735&quot;),
+        &quot;doctor&quot; : ObjectId(&quot;60d227a3519767a01e5b0737&quot;),
+        &quot;office&quot; : {
+                &quot;begin&quot; : &quot;15:00:00&quot;,
+                &quot;end&quot; : &quot;21:30:00&quot;,
+                &quot;phone_number&quot; : &quot;+70001213390&quot;
+        },
+        &quot;medical_record&quot; : {
+                &quot;diagnosis&quot; : &quot;cool&quot;,
+                &quot;condition&quot; : &quot;pochty umer&quot;,
+                &quot;recommendation&quot; : &quot;ne boleyte&quot;
+        }
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d23009519767a01e5b0741&quot;),
+        &quot;date&quot; : &quot;2020-01-15&quot;,
+        &quot;patient&quot; : ObjectId(&quot;60d201cd519767a01e5b0733&quot;),
+        &quot;doctor&quot; : ObjectId(&quot;60d22808519767a01e5b0738&quot;),
+        &quot;office&quot; : {
+                &quot;begin&quot; : &quot;12:00:00&quot;,
+                &quot;end&quot; : &quot;16:00:00&quot;,
+                &quot;phone_number&quot; : &quot;+70001113344&quot;
+        },
+        &quot;medical_record&quot; : {
+                &quot;diagnosis&quot; : &quot;cool&quot;,
+                &quot;condition&quot; : &quot;alive&quot;,
+                &quot;recommendation&quot; : &quot;ne prihodite bolshe&quot;
+        }
+}
+
+</code></pre>
+<p><br/></p>
+<h1 id="_3">Запросы к БД</h1>
+<h2 id="request-1st">REQUEST 1ST</h2>
+<pre><code>
+db.Appointment.find({ 'date' :  '2020-01-02' }).pretty()
+{
+        &quot;_id&quot; : ObjectId(&quot;60d22c9d519767a01e5b073b&quot;),
+        &quot;date&quot; : &quot;2020-01-02&quot;,
+        &quot;patient&quot; : ObjectId(&quot;60d201f2519767a01e5b0734&quot;),
+        &quot;doctor&quot; : ObjectId(&quot;60d2286b519767a01e5b0739&quot;),
+        &quot;office&quot; : {
+                &quot;begin&quot; : &quot;12:00:00&quot;,
+                &quot;end&quot; : &quot;16:00:00&quot;,
+                &quot;phone_number&quot; : &quot;+70001113344&quot;
+        },
+        &quot;medical_record&quot; : {
+                &quot;diagnosis&quot; : &quot;vse ochen ploho&quot;,
+                &quot;condition&quot; : &quot;umer&quot;,
+                &quot;recommendation&quot; : &quot;ne prihodite bolshe&quot;
+        }
+}
+
+</code></pre>
+<h2 id="request-2nd">REQUEST 2ND</h2>
+<pre><code>
+db.Doctor.aggregate({ $project :  { itemDescription : { $concat : [ &quot;$name&quot;, &quot;-&quot;, &quot;$speciality&quot; ] } } }).pretty()
+{
+        &quot;_id&quot; : ObjectId(&quot;60d226c2519767a01e5b0736&quot;),
+        &quot;itemDescription&quot; : &quot;petr-cardiologist&quot;
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d227a3519767a01e5b0737&quot;),
+        &quot;itemDescription&quot; : &quot;natasha-ent&quot;
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d22808519767a01e5b0738&quot;),
+        &quot;itemDescription&quot; : &quot;larisa-psychologist&quot;
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d2286b519767a01e5b0739&quot;),
+        &quot;itemDescription&quot; : &quot;makar-pathologist&quot;
+}
+
+</code></pre>
+<h2 id="request-3rd">REQUEST 3RD</h2>
+<pre><code>
+db.Appointment.find({ 'date' : '2020-01-04',  'medical_record.condition' : 'alive'  }).pretty()
+{
+        &quot;_id&quot; : ObjectId(&quot;60d22d98519767a01e5b073d&quot;),
+        &quot;date&quot; : &quot;2020-01-04&quot;,
+        &quot;patient&quot; : ObjectId(&quot;60d2021b519767a01e5b0735&quot;),
+        &quot;doctor&quot; : ObjectId(&quot;60d22808519767a01e5b0738&quot;),
+        &quot;office&quot; : {
+                &quot;begin&quot; : &quot;12:00:00&quot;,
+                &quot;end&quot; : &quot;18:00:00&quot;,
+                &quot;phone_number&quot; : &quot;+70001213344&quot;
+        },
+        &quot;medical_record&quot; : {
+                &quot;diagnosis&quot; : &quot;cool&quot;,
+                &quot;condition&quot; : &quot;alive&quot;,
+                &quot;recommendation&quot; : &quot;ne boleyte&quot;
+        }
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d22e17519767a01e5b073e&quot;),
+        &quot;date&quot; : &quot;2020-01-04&quot;,
+        &quot;patient&quot; : ObjectId(&quot;60d201cd519767a01e5b0733&quot;),
+        &quot;doctor&quot; : ObjectId(&quot;60d22808519767a01e5b0738&quot;),
+        &quot;office&quot; : {
+                &quot;begin&quot; : &quot;12:00:00&quot;,
+                &quot;end&quot; : &quot;18:00:00&quot;,
+                &quot;phone_number&quot; : &quot;+70001213344&quot;
+        },
+        &quot;medical_record&quot; : {
+                &quot;diagnosis&quot; : &quot;cool&quot;,
+                &quot;condition&quot; : &quot;alive&quot;,
+                &quot;recommendation&quot; : &quot;ne prihodite bolshe&quot;
+        }
+}
+
+</code></pre>
+<h2 id="request-4th">REQUEST 4TH</h2>
+<pre><code>
+db.Doctor.find().sort( { name : -1} ).pretty()
+{
+        &quot;_id&quot; : ObjectId(&quot;60d226c2519767a01e5b0736&quot;),
+        &quot;name&quot; : &quot;petr&quot;,
+        &quot;speciality&quot; : &quot;cardiologist&quot;,
+        &quot;date_of_birth&quot; : &quot;1999-04-23&quot;,
+        &quot;price_list&quot; : {
+                &quot;service&quot; : &quot;treatment&quot;,
+                &quot;price&quot; : 1900
+        },
+        &quot;schedule&quot; : {
+                &quot;working_days&quot; : [
+                        &quot;mon&quot;,
+                        &quot;tue&quot;
+                ]
+        }
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d227a3519767a01e5b0737&quot;),
+        &quot;name&quot; : &quot;natasha&quot;,
+        &quot;speciality&quot; : &quot;ent&quot;,
+        &quot;date_of_birth&quot; : &quot;1999-04-23&quot;,
+        &quot;price_list&quot; : {
+                &quot;service&quot; : &quot;inspection&quot;,
+                &quot;price&quot; : 2100
+        },
+        &quot;schedule&quot; : {
+                &quot;working_days&quot; : [
+                        &quot;mon&quot;,
+                        &quot;wed&quot;
+                ]
+        }
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d2286b519767a01e5b0739&quot;),
+        &quot;name&quot; : &quot;makar&quot;,
+        &quot;speciality&quot; : &quot;pathologist&quot;,
+        &quot;date_of_birth&quot; : &quot;1999-05-28&quot;,
+        &quot;price_list&quot; : {
+                &quot;service&quot; : &quot;conversation&quot;,
+                &quot;price&quot; : 5500
+        },
+        &quot;schedule&quot; : {
+                &quot;working_days&quot; : [
+                        &quot;mon&quot;,
+                        &quot;tue&quot;
+                ]
+        }
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d22808519767a01e5b0738&quot;),
+        &quot;name&quot; : &quot;larisa&quot;,
+        &quot;speciality&quot; : &quot;psychologist&quot;,
+        &quot;date_of_birth&quot; : &quot;1999-02-23&quot;,
+        &quot;price_list&quot; : {
+                &quot;service&quot; : &quot;consultation&quot;,
+                &quot;price&quot; : 2400
+        },
+        &quot;schedule&quot; : {
+                &quot;working_days&quot; : [
+                        &quot;wed&quot;,
+                        &quot;fri&quot;
+                ]
+        }
+}
+
+</code></pre>
+<h2 id="request-5th">REQUEST 5TH</h2>
+<pre><code>
+db.Doctor.find( { 'price_list.price' : { $gte: 2000 } } ).pretty()
+{
+        &quot;_id&quot; : ObjectId(&quot;60d227a3519767a01e5b0737&quot;),
+        &quot;name&quot; : &quot;natasha&quot;,
+        &quot;speciality&quot; : &quot;ent&quot;,
+        &quot;date_of_birth&quot; : &quot;1999-04-23&quot;,
+        &quot;price_list&quot; : {
+                &quot;service&quot; : &quot;inspection&quot;,
+                &quot;price&quot; : 2100
+        },
+        &quot;schedule&quot; : {
+                &quot;working_days&quot; : [
+                        &quot;mon&quot;,
+                        &quot;wed&quot;
+                ]
+        }
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d22808519767a01e5b0738&quot;),
+        &quot;name&quot; : &quot;larisa&quot;,
+        &quot;speciality&quot; : &quot;psychologist&quot;,
+        &quot;date_of_birth&quot; : &quot;1999-02-23&quot;,
+        &quot;price_list&quot; : {
+                &quot;service&quot; : &quot;consultation&quot;,
+                &quot;price&quot; : 2400
+        },
+        &quot;schedule&quot; : {
+                &quot;working_days&quot; : [
+                        &quot;wed&quot;,
+                        &quot;fri&quot;
+                ]
+        }
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;60d2286b519767a01e5b0739&quot;),
+        &quot;name&quot; : &quot;makar&quot;,
+        &quot;speciality&quot; : &quot;pathologist&quot;,
+        &quot;date_of_birth&quot; : &quot;1999-05-28&quot;,
+        &quot;price_list&quot; : {
+                &quot;service&quot; : &quot;conversation&quot;,
+                &quot;price&quot; : 5500
+        },
+        &quot;schedule&quot; : {
+                &quot;working_days&quot; : [
+                        &quot;mon&quot;,
+                        &quot;tue&quot;
+                ]
+        }
+}
+
+</code></pre>
+<p><br/></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
