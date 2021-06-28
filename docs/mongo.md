@@ -574,3 +574,17 @@ db.Doctor.find( { 'price_list.price' : { $gte: 2000 } } ).pretty()
 ```
 
 <br/>
+
+# Map Reduce
+
+```
+Подсчёт количества приёмов у каждого врача
+```
+
+## Создание Map Reduce
+
+```
+db.Appointment.mapReduce( function () { emit(this.doctor, 1); }, function (key, values) { return Array.sum(values); }, { out: "result" } )
+```
+
+![результат](/6.png)
